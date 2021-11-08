@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body onload=display_ct6();>
+    <script>
+        function display_ct6() {
+            var x = new Date()
+            var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+            hours = x.getHours( ) % 12;
+            hours = hours ? hours : 12;
+            var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+            x1 = x1 + "  " +  hours + ":" +  x.getMinutes() + ampm;
+            document.getElementById('ct6').innerHTML = x1;
+            display_c6();
+         }
+         function display_c6(){
+            var refresh=1000; // Refresh rate in milli seconds
+            mytime=setTimeout('display_ct6()',refresh)
+        }
+        display_c6()
+    </script>
+    <link rel="stylesheet" href="index.css">
+    <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <div id="quarantineBadge" class="badge-Green">
+        <div style="position: fixed; top: 0; left: 0; width: 100vw; z-index: 9999;">
+            <button class="exit btn btn-primary btn-sm pull-right"><i class="fa fa-close"></i></button>
+        </div>
+        <p>Clearance Status</p>
+        <h1 style="margin-top: -20px; font-size: 2.75em;">Cleared</h1>
+        <span id='ct6' style="top: 0px; position: relative; font-size: 1.4em;"></span>
+        <div id="patInfo" class="row text-center" style="margin-top: 15px;">
+                <div class="col-xs-12">
+                    <img id="patImage" src="Image.jpg" style="max-width: 170px; margin-top: 0px;">
+                </div>
+            <div class="col-xs-12">
+                <h3 id="badgename" class="mb-0" style="margin-top: 4px;">
+                        <strong>JAYU PATEL</strong>
+                </h3>
+            </div>
+            <div class="col-xs-12">
+                <span id="badgedob" class="ml-2">Feb 28</span>
+            </div>
+            <div class="col-xs-12">
+                    <span>#3037199387</span>                
+            </div>
+        </div>
+        <div id="badgeqr" class="mt-2">
+            <img src="download.png">
+        </div>
+    </div>
+</body>
+</html>
